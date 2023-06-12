@@ -25,7 +25,7 @@ int is_palindrome(listint_t **head)
 	}
 	while (i > j)
 	{
-		if (arr[i - 1] != (*head)->n)
+		if (arr[i] != (*head)->n)
 			return (0);
 		else
 		{
