@@ -13,25 +13,25 @@ int is_palindrome(listint_t **head)
 
 	if (curr == NULL)
 	{
-	return (1);
+		return (1);
 	}
 	else
 	{
-	while (curr != NULL)
-	{
-		arr[i] = curr->n;
-		curr = curr->next;
-		i++;
-	}
-	while (i > j)
-	{
-		if (arr[i - 1] != (*head)->n)
-			return (0);
+		while (curr != NULL)
+		{
+			arr[i] = curr->n;
+			curr = curr->next;
+			i++;
+		}
+		while (i > j)
+		{
+			if (arr[i - 1] != (*head)->n)
+				return (0);
 
-		(*head) = (*head)->next;
-		i--;
-		j++;
-	}
+			(*head) = (*head)->next;
+			i--;
+			j++;
+		}
 	}
 	return (1);
 }
