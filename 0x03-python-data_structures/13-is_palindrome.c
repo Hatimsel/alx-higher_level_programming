@@ -8,7 +8,7 @@
 
 int is_palindrome(listint_t **head)
 {
-	int arr[MAX_LEN], i = 0, j = 0;
+	int arr[100], i = 0, j = 0;
 	listint_t *curr = *head;
 	
 	if (curr == NULL)
@@ -25,7 +25,7 @@ int is_palindrome(listint_t **head)
 	}
 	while (i > j)
 	{
-		if (arr[i] != (*head)->n)
+		if (arr[i - 1] != (*head)->n)
 			return (0);
 		else
 		{
