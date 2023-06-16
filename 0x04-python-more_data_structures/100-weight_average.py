@@ -5,7 +5,7 @@ def weight_average(my_list=[]):
     j = 0
     y = 0
     if not my_list:
-        return None
+        return 0
     for lst in my_list:
         for i in range(len(lst)):
             wet += lst[1]
