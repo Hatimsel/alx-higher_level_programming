@@ -9,6 +9,7 @@ def roman_to_int(roman_string):
         value = rom_dict[char]
         if value >= prev_value:
             result += value
+            prev_value = value
         else:
             result -= value
             prev_value = value
