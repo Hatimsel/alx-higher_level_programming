@@ -4,15 +4,12 @@
 * check_cycle - function that checks is there is a cycle
 *
 * @list: linked list to be examined
-*
 * Return: returns 1 if there is a cycle else 0
 */
 
-
 int check_cycle(listint_t *list)
 {
-	listint_t *arr[1024];
-	int i = 0, j = 0;
+	listint_t *tmp = list;
 
 	if (list == NULL)
 	{
@@ -20,17 +17,15 @@ int check_cycle(listint_t *list)
 	}
 	while (list != NULL)
 	{
-		arr[i] = list;
-		list = list->next;
-		while (arr[j] != NULL)
+		while (tmp != NULL)
 		{
-			if (list == arr[j])
+			if (tmp->next == list)
 			{
 				return (1);
 			}
-		j++;
+			tmp = tmp->next;
 		}
-		i++;
+		list = list->next;
 	}
 	return (0);
 }
