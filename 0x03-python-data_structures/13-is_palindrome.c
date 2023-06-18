@@ -5,33 +5,44 @@
 * @head: pointer to pointer to the linked list's head
 * Return: return 1 if it is palindrome else 0
 */
+#define max_len 100
 
 int is_palindrome(listint_t **head)
 {
-	int arr[100], i = 0, j = 0;
+	int arr[max_len];
 	listint_t *curr = *head;
-
-	if (curr == NULL)
+	int i = 0, j = 0, x = 0, len = 0, m_len = 0;
+	if (*head == NULL)
+	{
+		return (1);
+	}
+	while (curr != NULL)
+	{
+		arr[i] = curr->n;
+		i++;
+		curr = curr->next;
+	}
+	arr[i] = '\0';
+	while (arr[j] != '\0')
+	{
+		len++;
+		j++;
+	}
+	if (len % 2 != 0)
 	{
 		return (1);
 	}
 	else
 	{
-		while (curr != NULL)
+		m_len = len / 2;
+		for (x = 0; x < m_len; x++)
 		{
-			arr[i] = curr->n;
-			curr = curr->next;
-			i++;
-		}
-		while (i > j)
-		{
-			if (arr[i - 1] != (*head)->n)
+			if (arr[len - 1] != arr[x])
+			{
 				return (0);
-
-			(*head) = (*head)->next;
-			i--;
-			j++;
+			}
+			len--;
 		}
+		return (1);
 	}
-	return (1);
 }
