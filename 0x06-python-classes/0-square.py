@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-""" no propreties """
+""" empty class """
 
 class Square:
     """ no propreties """
