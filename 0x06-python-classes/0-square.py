@@ -2,6 +2,7 @@
 
 """ empty class """
 
+
 class Square:
     """ no propreties """
     pass
