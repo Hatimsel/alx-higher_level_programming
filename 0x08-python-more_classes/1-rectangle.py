@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+""" class Rectangle that defines a rectangle by: (based on 0-rectangle.py)"""
 
 
 class Rectangle:
-
+""" instantiation using init method"""
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
