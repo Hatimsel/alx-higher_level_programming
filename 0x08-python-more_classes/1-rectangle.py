@@ -3,7 +3,9 @@
 
 
 class Rectangle:
-""" instantiation using init method"""
+
+    """ instantiation using init method"""
+
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
