@@ -1,8 +1,22 @@
 #!/usr/bin/python3
+"""class Rectangle that defines a rectangle by: (based on 2-rectangle.py)"""
 
 
 class Rectangle:
 
+    """
+    A class representing a rectangle.
+
+    Attributes:
+        width (int): The width of the rectangle.
+        height (int): The height of the rectangle.
+
+    Methods:
+        __init__(width=0, height=0): Initializes a Rectangle object with
+        optional width and height.
+        width: Getter method for retrieving the width of the rectangle.
+        height: Getter method for retrieving the height of the rectangle.
+    """
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
