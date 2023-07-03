@@ -1,0 +1,24 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Now use it:
+
+	>>> say_my_name() # Test with no parameters passed
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+	>>> say_my_name("Hatim", "Selmun") # A basic test
+	My name is Hatim Selmun
+
+	>>> say_my_name(12, "Selmun") # Test first name as an integer
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Hatim", 24) #Test last name as an integer
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+	>>> say_my_name("Hatim") #Test with no last name
+	My name is Hatim 
