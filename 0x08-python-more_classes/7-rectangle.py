@@ -17,8 +17,8 @@ class Rectangle:
         height: Getter method for retrieving the height of the rectangle.
     """
 
-    print_symbol = '#'
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         self.__width = width
@@ -64,8 +64,8 @@ class Rectangle:
         string = ''
         if self.__width == 0 or self.__height == 0:
             return string
-        string1 = Rectangle.print_symbol
-        string += (string1 * self.__width + "\n") * self.__height
+        string1 = self.print_symbol
+        string += (str(string1) * self.__width + "\n") * self.__height
         return string[:-1]
 
     def __repr__(self):
