@@ -1,55 +1,108 @@
 Trying:
-    say_my_name = __import__('3-say_my_name').say_my_name
+    matrix_divided = __import__('2-matrix_divided').matrix_divided
 Expecting nothing
 ok
 Trying:
-    say_my_name()
+    matrix = [[1, 2, 3],[4, 5, 6]]
+Expecting nothing
+ok
+Trying:
+    matrix_2 = [[6, 5, 4],[3, 2]]
+Expecting nothing
+ok
+Trying:
+    matrix_3 = [[9, 'a', 3],[1, 2, 8]]
+Expecting nothing
+ok
+Trying:
+    empty_matrix = []
+Expecting nothing
+ok
+Trying:
+    matrix_divided(matrix, 3) # A basic Test
+Expecting:
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+ok
+Trying:
+    matrix_divided(matrix, 0) # Test division by zero
 Expecting:
     Traceback (most recent call last):
     ...
-    ValueError:
+    ZeroDivisionError: division by zero
+ok
+Trying:
+    matrix_divided(matrix, "str") # Test passing a string as a div
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+ok
+Trying:
+    matrix_divided(matrix_2, 2) #Test two matrix with different size
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
 **********************************************************************
-File "./tests/3-say_my_name.txt", line 5, in 3-say_my_name.txt
+File "./tests/2-matrix_divided.txt", line 22, in 2-matrix_divided.txt
 Failed example:
-    say_my_name()
+    matrix_divided(matrix_2, 2) #Test two matrix with different size
 Expected:
     Traceback (most recent call last):
     ...
-    ValueError:
+    TypeError: Each row of the matrix must have the same size
 Got:
     Traceback (most recent call last):
       File "/usr/lib/python3.11/doctest.py", line 1351, in __run
         exec(compile(example.source, filename, "single",
-      File "<doctest 3-say_my_name.txt[1]>", line 1, in <module>
-        say_my_name()
-    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+      File "<doctest 2-matrix_divided.txt[8]>", line 1, in <module>
+        matrix_divided(matrix_2, 2) #Test two matrix with different size
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "/home/hatim/alx-higher_level_programming/0x07-python-test_driven_development/2-matrix_divided.py", line 34, in matrix_divided
+        raise TypeError('Each row of the matrix must'
+    TypeError: Each row of the matrix musthave the same size
 Trying:
-    say_my_name("Hatim", "Selmun")
-Expecting:
-    My name is Hatim Selmun
-ok
-Trying:
-    say_my_name(12, "Selmun")
+    matrix_divided(matrix_3, 4) # Test passing a string inside a list
 Expecting:
     Traceback (most recent call last):
     ...
-    TypeError: first_name must be a string
-ok
-Trying:
-    say_my_name("Hatim", 24)
-Expecting:
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+**********************************************************************
+File "./tests/2-matrix_divided.txt", line 27, in 2-matrix_divided.txt
+Failed example:
+    matrix_divided(matrix_3, 4) # Test passing a string inside a list
+Expected:
     Traceback (most recent call last):
     ...
-    TypeError: last_name must be a string
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.11/doctest.py", line 1351, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 2-matrix_divided.txt[9]>", line 1, in <module>
+        matrix_divided(matrix_3, 4) # Test passing a string inside a list
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "/home/hatim/alx-higher_level_programming/0x07-python-test_driven_development/2-matrix_divided.py", line 39, in matrix_divided
+        raise TypeError('matrix must be a matrix (list of lists) of'
+    TypeError: matrix must be a matrix (list of lists) ofintegers/floats
+Trying:
+    matrix_divided(matrix, 1) # Test dividing a matrix by one
+Expecting:
+    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
 ok
 Trying:
-    say_my_name("Hatim")
+    matrix_divided(empty_matrix, 3) # Test an empty matrix
 Expecting:
-    My name is Hatim 
+    []
+ok
+Trying:
+    matrix_divided(matrix, 0.5) # Test dividing by a decimal number
+Expecting:
+    [[2.0, 4.0, 6.0], [8.0, 10.0, 12.0]]
 ok
 **********************************************************************
 1 items had failures:
-   1 of   6 in 3-say_my_name.txt
-6 tests in 1 items.
-5 passed and 1 failed.
-***Test Failed*** 1 failures.
+   2 of  13 in 2-matrix_divided.txt
+13 tests in 1 items.
+11 passed and 2 failed.
+***Test Failed*** 2 failures.

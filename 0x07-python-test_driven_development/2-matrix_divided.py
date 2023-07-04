@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Dividing a Matrix"""
 
 
 def matrix_divided(matrix, div):
@@ -30,11 +31,13 @@ def matrix_divided(matrix, div):
             c_count = len(row)
         else:
             if len(row) != c_count:
-                raise TypeError('Each row of the matrix must have the same size')
+                raise TypeError('Each row of the matrix must'
+                                ' have the same size')
 
         for column in row:
             if type(column) not in (int, float):
-                raise TypeError('matrix must be a matrix (list of lists) of integers/floats')
+                raise TypeError('matrix must be a matrix (list of lists) of'
+                                ' integers/floats')
         r_count += 1
 
     if type(div) not in (int, float):

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" text_indentation function"""
 
 
 def text_indentation(text):
