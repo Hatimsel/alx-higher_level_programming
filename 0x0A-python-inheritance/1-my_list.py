@@ -7,5 +7,5 @@ class MyList(list):
     def print_sorted(self):
         """a function that sorts a list
         returns a sorted copy"""
-        sorted_list = sorted(self)
+        sorted_list = sorted(self[:])
         print(sorted_list)
