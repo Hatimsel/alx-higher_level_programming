@@ -7,11 +7,11 @@ class Rectangle(BaseGeometry):
     """subclass of BaseGeometry"""
     def __init__(self, width, height):
         """instantiation with width and height"""
-        if self.integer_validator('width', width):
-            self.__width = width
+        self.integer_validator('width', width)
+        self.__width = width
 
-        if self.integer_validator('height', height):
-            self.__height = height
+        self.integer_validator('height', height)
+        self.__height = height
 
     def area(self):
         """returns the area of a rectangle"""
