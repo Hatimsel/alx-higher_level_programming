@@ -1,5 +1,8 @@
 >>> MyList = __import__('1-my_list').MyList
 
+Now use it:
+
+    >>> my_list = MyList()
     >>> my_list.append(-50)
     >>> my_list.append(1)
     >>> my_list.append(700)
