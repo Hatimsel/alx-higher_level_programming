@@ -1,10 +1,29 @@
 >>> MyList = __import__('1-my_list').MyList
 
-Now use it:
 
     >>> my_list = MyList()
-    >>> my_list.append(-50)
+
     >>> my_list.append(1)
-    >>> my_list.append(700)
+
+    >>> my_list.append(4)
+
+    >>> my_list.append(2)
+
+    >>> my_list.append(3)
+
+    >>> my_list.append(5)
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
     >>> my_list.print_sorted()
-    [-50, 1, 700]
+    [1, 2, 3, 4, 5]
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+    >>> print(my_list)
+    []
+
+    >>> isinstance(my_list, list)
+    True

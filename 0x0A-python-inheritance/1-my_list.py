@@ -9,3 +9,7 @@ class MyList(list):
         returns a sorted copy"""
         sorted_list = sorted(self)
         print(sorted_list)
+
+    def __str__(self):
+        """Returns the string representation of the list."""
+        return super().__str__()
