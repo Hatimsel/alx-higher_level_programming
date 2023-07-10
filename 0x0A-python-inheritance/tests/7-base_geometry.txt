@@ -1,0 +1,14 @@
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> bg = BaseGeometry()
+
+>>> bg.integer_validator("int", 7.5) #testing floats
+Traceback (most recent call last):
+    ...
+TypeError: int must be an integer
+
+>>> bg.integer_validator("distance", 0)
+Traceback (most recent call last):
+    ...
+ValueError: distance must be greater than 0
