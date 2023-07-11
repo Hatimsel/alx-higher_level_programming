@@ -27,6 +27,9 @@ Checking type:
 >>> isinstance(my_list, list)
 True
 
+>>> issubclass(MyList, list)
+True
+
 Trying negatives with positives:
 >>> my_list.extend([9, -5, 6])
 >>> my_list.print_sorted()
@@ -34,11 +37,17 @@ Trying negatives with positives:
 
 Adding elements:
 >>> my_list = []
->>> my_list.append(9)
->>> my_list.append(6)
->>> my_list.append(125)
->>> my_list.append(-600)
->>> my_list.append(0)
 >>> my_list.print_sorted()
 Traceback (most recent call last):
 AttributeError: 'list' object has no attribute 'print_sorted'
+
+>>> type(my_list)
+<class 'list'>
+
+>>> new_list = MyList()
+>>> new_list.append(0)
+>>> new_list.append(488)
+>>> new_list.append(-954)
+>>> new_list.append(2550)
+>>> new_list.print_sorted()
+[-954, 0, 488, 2550]
