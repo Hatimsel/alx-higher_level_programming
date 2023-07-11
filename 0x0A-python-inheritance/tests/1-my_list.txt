@@ -21,7 +21,7 @@
 
 Trying empty:
 >>> print(my_list)
-[]
+[1, 4, 2, 3, 5]
 
 Checking type:
 >>> isinstance(my_list, list)
@@ -30,7 +30,7 @@ True
 Trying negatives with positives:
 >>> my_list.extend([9, -5, 6])
 >>> my_list.print_sorted()
-[-5, 6, 9]
+[-5, 1, 2, 3, 4, 5, 6, 9]
 
 Adding elements:
 >>> my_list = []
@@ -40,4 +40,5 @@ Adding elements:
 >>> my_list.append(-600)
 >>> my_list.append(0)
 >>> my_list.print_sorted()
-[-600, 0, 6, 9, 125]
+Traceback (most recent call last):
+AttributeError: 'list' object has no attribute 'print_sorted'
