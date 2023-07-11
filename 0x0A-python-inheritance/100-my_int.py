@@ -4,8 +4,14 @@
 
 class MyInt(int):
     """a subclass of int"""
-    def invert(self):
-        if True:
-            return False
-        if False:
-            return True
+    def __eq__(self, value):
+        """
+        Invert == operator
+        """
+        return not (self is not value)
+
+    def __ne__(self, value):
+        """
+        Invert != operator
+        """
+        return (self is not value)
