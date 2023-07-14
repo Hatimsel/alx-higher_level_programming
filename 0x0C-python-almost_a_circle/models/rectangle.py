@@ -92,5 +92,24 @@ class Rectangle(Base):
         """updating __str__ special method"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """updatig the class Rectangle"""
+        attr_list = ["id", "width", "height", "x", "y"]
+        i = 0
+        if args:
+            for arg in args:
+                if i >= len(attr_list):
+                    return
+
+                setattr(self, attr_list[i], arg)
+                # self.__setattr__(attr_list[i], arg)
+                i += 1
+        for key, value in kwargs.items():
+            # self.__setattr__(key, value)
+            setattr(self, key, value)
+
+    def to_dictionary(self):
+        """returns the dict represantation of Rectangle class"""
+        dict = {"id": self.id, "width": self.width, "height": self.height\
+                , "x": self.x, "y": self.y}
+        return dict
