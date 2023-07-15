@@ -7,18 +7,19 @@ class Square(Rectangle):
     """Square class"""
     def __init__(self, size, x=0, y=0, id=None):
         """Instantiating the class"""
-        super().__init__(x, y, id, size, size)
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """Adjusting str special method"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property
-    def get_size(self):
+    def size(self):
         """size getter"""
         return self.width
     
-    def set_size(self, size):
+    @size.setter
+    def size(self, size):
         """size setter"""
         self.width = size
         self.height = size
@@ -33,10 +34,11 @@ class Square(Rectangle):
                     return
                 self.__setattr__(attr_list[i], arg)
                 i += 1
-        for key, value in kwargs.items:
-            self.__setattr__(key, value)
+        else:
+            for key, value in kwargs.items():
+                self.__setattr__(key, value)
 
     def to_dictionary(self):
         """returns the dict representation of a square"""
-        dict = {"id": self.id, "size": self.width, "x": self.x, "y": self.y}
+        dict = {"id": self.id, "x": self.x, "size": self.width, "y": self.y}
         return dict
