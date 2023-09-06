@@ -22,9 +22,22 @@ Testing add_integer function
 	...
 	TypeError: b must be an integer
 
+	>>> add_integer('a', 'b')
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
 	Checking floats
 	>>> add_integer(100.3, -2)
 	98
+
+	>>> add_integer(9.2, 5.9)
+	14
 
 	>>> add_integer(9)
 	107
