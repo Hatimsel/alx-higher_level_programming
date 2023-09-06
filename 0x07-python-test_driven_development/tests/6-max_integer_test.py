@@ -18,6 +18,9 @@ class TestMaxInteger(unittest.TestCase):
         with self.assertRaises(TypeError):
             max_integer(1, 2, 3)
 
+    def test_negatives(self):
+        self.assertEqual(max_integer([-678, -569, -15, -7]), -7)
+
     def test_empty_list(self):
         self.assertEqual(max_integer([]), None)
 
@@ -30,6 +33,9 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_one_arg(self):
         self.assertIs(max_integer([255]), 255)
+
+    def test_leading_zeros(self):
+        self.assertEqual(max_integer([0o1145, 0o20, 0o3, 0o760, 0o214]), 0o1145)
 
 if __name__ == '__main__':
     unittest.main()
