@@ -13,7 +13,8 @@ def matrix_divided(matrix, div):
     of dividing matrix's elements by div
     """
     if not isinstance(matrix, list) or not \
-            all(isinstance(row, list) and all(isinstance(val, (int, float)) for val in row) for row in matrix):
+            all(isinstance(row, list) and all(isinstance(val, (int, float))
+                for val in row) for row in matrix):
         raise TypeError('matrix must be a matrix \
 (list of lists) of integers/floats')
 
