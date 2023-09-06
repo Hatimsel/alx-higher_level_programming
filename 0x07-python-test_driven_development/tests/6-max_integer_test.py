@@ -18,8 +18,15 @@ class TestMaxInteger(unittest.TestCase):
         with self.assertRaises(TypeError):
             max_integer(1, 2, 3)
 
-    def test_None(self):
+    def test_empty_list(self):
         self.assertEqual(max_integer([]), None)
+
+    def test_None(self):
+        with self.assertRaises(TypeError):
+            max_integer(None)
+
+    def test_string(self):
+        self.assertIs(max_integer('Hatim Selmun'), 'u')
 
     def test_one_arg(self):
         self.assertIs(max_integer([255]), 255)
