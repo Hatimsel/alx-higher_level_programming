@@ -1,13 +1,9 @@
 #!/usr/bin/python3
-"""
-empty class
-"""
+"""BaseGeometry class"""
 
 
 class BaseGeometry:
-    """
-    not empty anymore
-    """
+    """not empty anymore"""
     def area(self):
         """
         return the area of a shape when implemented
