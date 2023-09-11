@@ -38,6 +38,11 @@ Traceback (most recent call last):
 ...
 TypeError: distance must be an integer
 
+>>> bg.integer_validator('distance', float('inf'))
+Traceback (most recent call last):
+...
+TypeError: distance must be an integer
+
 >>> bg.integer_validator('age', 887) # a basic test that's true
 
 >>> bg.integer_validator()
@@ -74,3 +79,11 @@ TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
 Traceback (most recent call last):
 ...
 TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+>>> doc = BaseGeometry = __import__('7-base_geometry').__doc__
+>>> len(doc) > 1
+True
+
+>>> doc = BaseGeometry = __import__('7-base_geometry').BaseGeometry.__doc__
+>>> len(doc) > 1
+True
