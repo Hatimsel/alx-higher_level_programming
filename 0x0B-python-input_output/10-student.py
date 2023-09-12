@@ -22,6 +22,6 @@ class Student:
     def to_json(self, attrs=None):
         if isinstance(attrs, list):
             if all(isinstance(item, str) for item in attrs):
-                dic = {attr: self.__dict__[attr] for attr in attrs if hasattr(self, attr)}
+                dic = {i: self.__dict__[i] for i in attrs if hasattr(self, i)}
                 return dic
         return self.__dict__
