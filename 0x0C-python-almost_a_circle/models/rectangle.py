@@ -13,22 +13,22 @@ class Rectangle(Base):
         """
         Instantiation of the class
         """
-        # args = {"width": width, "height": height, "x": x, "y": y}
-        # for k, v in args.items():
-        #     if type(args[k]) is not int:
-        #         raise TypeError(f'{k} must be an integer')
+        args = {"width": width, "height": height, "x": x, "y": y}
+        for k, v in args.items():
+            if type(args[k]) is not int:
+                raise TypeError(f'{k} must be an integer')
 
-        # if width <= 0:
-        #     raise ValueError('width must be > 0')
+        if width <= 0:
+            raise ValueError('width must be > 0')
 
-        # if height <= 0:
-        #     raise ValueError('height must be > 0')
+        if height <= 0:
+            raise ValueError('height must be > 0')
 
-        # if x < 0:
-        #     raise ValueError('x must be >= 0')
+        if x < 0:
+            raise ValueError('x must be >= 0')
 
-        # if y < 0:
-        #     raise ValueError('y must be >= 0')
+        if y < 0:
+            raise ValueError('y must be >= 0')
         self.__width = width
         self.__height = height
         self.__x = x
