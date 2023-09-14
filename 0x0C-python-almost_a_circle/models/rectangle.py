@@ -112,13 +112,17 @@ class Rectangle(Base):
         """
         return f'[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}'
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Updates the class Rectangle
         """
-        attribute_names = ('id', 'width', 'height', 'x', 'y')
+        if len(args) > 0:
+            attribute_names = ('id', 'width', 'height', 'x', 'y')
 
-        for i, arg in enumerate(args):
-            if i >= len(attribute_names):
-                break
-            setattr(self, attribute_names[i], arg)
+            for i, arg in enumerate(args):
+                if i >= len(attribute_names):
+                    break
+                setattr(self, attribute_names[i], arg)
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
