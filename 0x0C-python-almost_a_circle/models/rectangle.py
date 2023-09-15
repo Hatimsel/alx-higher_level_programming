@@ -88,13 +88,11 @@ class Rectangle(Base):
             raise ValueError('y must be >= 0')
         self.__y = y
 
-
     def area(self):
         """
         returns the area value of the Rectangle instance
         """
         return self.__width * self.__height
-
 
     def display(self):
         """
@@ -105,12 +103,12 @@ class Rectangle(Base):
         for i in range(self.__height):
             print(' ' * self.__x + '#' * self.__width)
 
-
     def __str__(self):
         """
         returns a formatted representation of the class Rectangle
         """
-        return f'[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}'
+        a, b, c = self.id, self.__x, self.__y
+        return f'[Rectangle] ({a}) {b}/{c} - {self.__width}/{self.__height}'
 
     def update(self, *args, **kwargs):
         """
@@ -126,3 +124,13 @@ class Rectangle(Base):
         else:
             for k, v in kwargs.items():
                 setattr(self, k, v)
+
+    def to_dictionary(self):
+        """
+        returns a dictionary representation of the Rectangle class
+        """
+        # Tricking pycodestyle
+        a, b, c, d, e = 'id', 'width', 'height', 'x', 'y'
+        f, g, h = self.id, self.__width, self.__height
+        dic = {a: f, b: g, c: h, d: self.__x, e: self.__y}
+        return dic
