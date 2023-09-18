@@ -106,52 +106,44 @@ class Base:
 
         return []
 
-    # @classmethod
-    # def save_to_file_csv(cls, list_objs):
-    #     """
-    #     Serializes Python objects into CSV files
-    #     """
-    #     filename = cls.__name__ + '.csv'
-    #     # list_of_dict = []
-    #     list_of_val = [[], []]
-    #     cls_names = ['Rectangle', 'Square']
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes Python objects into CSV files
+        """
+        filename = cls.__name__ + '.csv'
+        list_of_val = [[], []]
+        cls_names = ['Rectangle', 'Square']
 
-    #     if cls.__name__ == cls_names[0]:
-    #         header = ['id', 'width', 'height', 'x', 'y']
+        if cls.__name__ == cls_names[0]:
+            header = ['id', 'width', 'height', 'x', 'y']
 
-    #     elif cls.__name__ == cls_names[1]:
-    #         header = ['id', 'size', 'x', 'y']
+        elif cls.__name__ == cls_names[1]:
+            header = ['id', 'size', 'x', 'y']
 
-    #     # for obj in list_objs:
-    #     #     list_of_dict.append(obj.__dict__)
-    #     data = [obj.__dict__ for obj in list_objs]
+        data = [cls.to_dictionary(obj) for obj in list_objs]
 
-    #     for j in range(len(header)):
-    #         for i in range(len(data)):
-    #             for k, v in data[i].items():
-    #                 if header[j] in k:
-    #                     list_of_val[i].append(v)
+        with open(filename, 'w', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=header)
+            writer.writeheader()
+            writer.writerows(data)
 
-    #     with open(filename, 'w', encoding="utf-8") as f:
-    #         writer = csv.writer(f)
-    #         writer.writerow(header)
-    #         writer.writerows(list_of_val)
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserializes a csv into Python objects
+        """
+        filename = cls.__name__ + '.csv'
+        instances = []
 
-    # @classmethod
-    # def load_from_file_csv(cls):
-    #     """
-    #     Deserializes a csv into Python objects
-    #     """
-    #     filename = cls.__name__ + '.csv'
-    #     instances = []
+        with open(filename, 'r', encoding="utf-8", newline='') as f:
+            content = csv.DictReader(f)
+            for row in content:
+                instance = cls(1, 2)
 
-    #     with open(filename, 'r', encoding="utf-8") as f:
-    #         content = csv.DictReader(f)
-    #         for row in content:
-    #             instance = cls(1, 2)
-    #             for k, v in row.items():
-    #                 setattr(instance, k, v)
+                row = {k: int(v) for k, v in row.items()}
+                instance.update(**row)
 
-    #             instances.append(instance)
+                instances.append(instance)
 
-    #     return instances
+        return instances
