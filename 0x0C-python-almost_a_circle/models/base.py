@@ -25,7 +25,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """
-        Returns the JSON representation of list dictionaries
+        Returns the JSON representation of a list of dictionaries
         """
         empty = "[]"
 
@@ -44,12 +44,12 @@ class Base:
         if list_objs is None:
             list_objs = []
 
-        # list_dicts = [obj.__dict__ for obj in list_objs]
-        list_dicts = [
-                {k.lstrip('_' + cls.__name__): v
-                 for k, v in obj.__dict__.items()}
-                for obj in list_objs
-                ]
+        list_dicts = [cls.to_dictionary(obj) for obj in list_objs]
+        # list_dicts = [
+        #         {k.lstrip('_' + cls.__name__): v
+        #          for k, v in obj.__dict__.items()}
+        #         for obj in list_objs
+        #         ]
 
         with open(filename, 'w', encoding="utf-8") as f:
             f.write(cls.to_json_string(list_dicts))
@@ -72,8 +72,13 @@ class Base:
         Returns an instance with all attributes already set
         """
         from models.rectangle import Rectangle
+        from models.square import Square
 
-        dummy = Rectangle(2, 4)
+        if cls.__name__ == 'Rectangle':
+            dummy = Rectangle(2, 4)
+        else:
+            dummy = Square(3)
+
         dummy.update(**dictionary)
 
         return dummy
@@ -84,16 +89,18 @@ class Base:
         Returns a list of instances
         """
         import os
+
         list_of_instances = []
         filename = cls.__name__ + '.json'
 
         if os.path.exists(filename):
             with open(filename, 'r', encoding="utf-8") as f:
                 content = f.read()
-                content = cls.from_json_string(content)
+
+            content = cls.from_json_string(content)
 
             for dic in content:
-                list_of_instances.append(cls.create())
+                list_of_instances.append(cls.create(**dic))
 
             return list_of_instances
 

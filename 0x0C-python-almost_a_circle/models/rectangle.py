@@ -130,7 +130,7 @@ class Rectangle(Base):
         returns a dictionary representation of the Rectangle class
         """
         # Tricking pycodestyle
-        a, b, c, d, e = 'id', 'width', 'height', 'x', 'y'
+        a, b, c = 'id', 'width', 'height'
         f, g, h = self.id, self.__width, self.__height
-        dic = {a: f, b: g, c: h, d: self.__x, e: self.__y}
+        dic = {a: f, b: g, c: h, 'x': self.__x, 'y': self.__y}
         return dic
