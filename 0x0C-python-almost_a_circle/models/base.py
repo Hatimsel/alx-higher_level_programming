@@ -4,6 +4,7 @@ Base class
 """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -147,3 +148,55 @@ class Base:
                 instances.append(instance)
 
         return instances
+
+    def draw(list_rectangles, list_squares):
+        """
+        Drawing all the rectangles and square passed in the lists
+        """
+        rectangle = turtle.Turtle()
+        rectangle.color('blue')
+        rectangle.pensize(5)
+        rectangle.penup()
+
+        for rect in list_rectangles:
+            rect = rect.to_dictionary()
+            x = rect['width']
+            y = rect['height']
+            rectangle.pendown()
+            rectangle.speed(1)
+            rectangle.fillcolor("blue")
+            rectangle.begin_fill()
+            rectangle.forward(x)
+            rectangle.left(90)
+            rectangle.forward(y)
+            rectangle.left(90)
+            rectangle.forward(x)
+            rectangle.left(90)
+            rectangle.forward(y)
+            rectangle.end_fill()
+            rectangle.penup()
+            rectangle.forward(200)
+
+        square = turtle.Turtle()
+        square.color('green')
+        square.pensize(5)
+        square.penup()
+        square.forward(400)
+
+        for sqr in list_squares:
+            sqr = sqr.to_dictionary()
+            x = sqr['size']
+            square.pendown()
+            square.fillcolor("green")
+            square.speed(1)
+            square.begin_fill()
+            square.forward(x)
+            square.left(90)
+            square.forward(x)
+            square.left(90)
+            square.forward(x)
+            square.left(90)
+            square.forward(x)
+            square.end_fill()
+            square.penup()
+            square.forward(200)
