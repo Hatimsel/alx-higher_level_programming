@@ -8,6 +8,11 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+def has_docstring(item):
+    """
+    Checking if an item has a docstring
+    """
+    return bool(item.__doc__)
 
 class TestBase(unittest.TestCase):
     """
@@ -18,6 +23,12 @@ class TestBase(unittest.TestCase):
         Setting up the private attribute nb_objects
         """
         Base._Base__nb_objects = 0
+
+    def test_module_docstring(self):
+        """
+        Testing if the module has docstirng
+        """
+        self.assertTrue(has_docstring(Base))
 
     def test_basic(self):
         b1 = Base()
