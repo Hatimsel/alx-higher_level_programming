@@ -3,6 +3,7 @@
 Tests on Base class
 """
 import unittest
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -192,16 +193,38 @@ class TestBase(unittest.TestCase):
             expected_result = '[Rectangle] (1) 2/8 - 10/7'
             self.assertEqual(rect.__str__(), expected_result)
 
-        # s1 = Square(7, 9, 1)
-        # list_squares_input = [s1]
+    def test_save_to_file_csv(self):
+        """
+        Testing save_to_file_csv method
+        """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
 
-        # Square.save_to_file(list_squares_input)
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        filename = 'Rectangle.csv'
+        with open(filename, 'r', encoding="utf-8") as f:
+            content = f.read()
 
-        # list_squares_output = Square.load_from_file()
+        expected_content = 'id,width,height,x,y\n1,10,7,2,8\n2,2,4,0,0\n'
 
-        # for square in list_squares_input:
-        #     expected_output = '[Square] (6) 9/1 - 7'
-        #     self.assertEqual(square.__str__(), expected_result)
+        self.assertTrue(os.path.exists(filename))
+        self.assertEqual(content, expected_content)
+
+    def test_load_from_csv(self):
+        """
+        Testing load_from_csv method
+        """
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        list_squares_input = [s1, s2]
+
+        Square.save_to_file_csv(list_squares_input)
+
+        list_squares_output = Square.load_from_file_csv()
+
+        self.assertTrue(len(list_squares_output) == 2)
+        self.assertFalse(list_squares_output == None)
 
     if __name__ == "__name__":
         unittest.main()
