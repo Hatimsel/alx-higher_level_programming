@@ -24,11 +24,25 @@ class TestBase(unittest.TestCase):
         """
         Base._Base__nb_objects = 0
 
-    def test_module_docstring(self):
+    def test_class_docstring(self):
         """
         Testing if the module has docstirng
         """
         self.assertTrue(has_docstring(Base))
+
+    def test_methods_docstring(self):
+        """
+        Testing if the methods have docstrings
+        """
+        self.assertTrue(has_docstring(Base.__init__))
+        self.assertTrue(has_docstring(Base.to_json_string))
+        self.assertTrue(has_docstring(Base.from_json_string))
+        self.assertTrue(has_docstring(Base.save_to_file))
+        self.assertTrue(has_docstring(Base.create))
+        self.assertTrue(has_docstring(Base.load_from_file))
+        self.assertTrue(has_docstring(Base.save_to_file_csv))
+        self.assertTrue(has_docstring(Base.load_from_file_csv))
+        self.assertTrue(has_docstring(Base.draw))
 
     def test_basic(self):
         b1 = Base()
