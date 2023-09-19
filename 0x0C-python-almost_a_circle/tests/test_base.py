@@ -177,6 +177,10 @@ class TestBase(unittest.TestCase):
         self.assertEqual(content, '[]')
         self.assertTrue(len(content) == 2)
 
+    def test_rectangle_save_to_file_empty(self):
+        """
+        Testing save_to_file method on a REctangle object with an empty list
+        """
         Rectangle.save_to_file([])
 
         with open("Rectangle.json", "r") as file:
@@ -197,6 +201,10 @@ class TestBase(unittest.TestCase):
         self.assertEqual(content, '[]')
         self.assertTrue(len(content) == 2)
 
+    def test_square_save_to_file_empty_list(self):
+        """
+        Testing save_to_file method on a Square object with an empty list
+        """
         Square.save_to_file([])
 
         with open("Square.json", "r") as file:
