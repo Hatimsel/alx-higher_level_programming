@@ -42,6 +42,11 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s3.__str__(), '[Square] (3) 1/3 - 3')
         self.assertEqual(s3.area(), 9)
 
+        s4 = Square(3, 1, 2, 2)
+        self.assertEqual(s4.__str__(), '[Square] (2) 1/2 - 3')
+        self.assertEqual(s4.area(), 9)
+
+
     def test_square_exceptions(self):
         """
         Testing square exceptions when integer validator fails
@@ -63,6 +68,9 @@ class TestSquare(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             s = Square(6, 3, -6)
+        # After checking the QA reviews
+        with self.assertRaises(ValueError):
+            s = Square(-1)
 
     def test_with_no_parameter(self):
         """

@@ -64,6 +64,12 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             r = Rectangle(2, 4, 3, -1)
+        # after checking the QA reviws
+        with self.assertRaises(ValueError):
+            r = Rectangle(-2, 4, 3, 1)
+
+        with self.assertRaises(ValueError):
+            r = Rectangle(2, -2, 3, 1)
 
     def test_with_no_parameter(self):
         """
