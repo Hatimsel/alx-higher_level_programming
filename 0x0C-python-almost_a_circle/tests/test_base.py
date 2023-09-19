@@ -331,6 +331,19 @@ class TestBase(unittest.TestCase):
         self.assertFalse(s1 is s2)
         self.assertFalse(s1 == s2)
 
+        s3 = Square(3, 5, 1, 5)
+        s3_dictionary = s3.to_dictionary()
+        s4 = Square.create(**s3_dictionary)
+
+        expected_s3_str = '[Square] (5) 5/1 - 3'
+        expected_s4_str = '[Square] (5) 5/1 - 3'
+
+        self.assertEqual(s3.__str__(), expected_s3_str)
+        self.assertEqual(s4.__str__(), expected_s4_str)
+
+        self.assertFalse(s3 is s4)
+        self.assertFalse(s3 == s4)
+
     def test_rectangle_load_from_file(self):
         """
         Testing load_from_file method on a Rectangle object
