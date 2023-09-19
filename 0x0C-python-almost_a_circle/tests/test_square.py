@@ -46,7 +46,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s4.__str__(), '[Square] (2) 1/2 - 3')
         self.assertEqual(s4.area(), 9)
 
-
     def test_square_exceptions(self):
         """
         Testing square exceptions when integer validator fails

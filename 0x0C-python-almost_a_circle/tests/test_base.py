@@ -8,11 +8,13 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 def has_docstring(item):
     """
     Checking if an item has a docstring
     """
     return bool(item.__doc__)
+
 
 class TestBase(unittest.TestCase):
     """
@@ -45,15 +47,15 @@ class TestBase(unittest.TestCase):
         self.assertTrue(has_docstring(Base.draw))
 
     def test_basic(self):
+        """
+        Testing Base basic tests
+        """
         b1 = Base()
         self.assertEqual(b1.id, 1)
-
         b2 = Base()
         self.assertEqual(b2.id, 2)
-
         b3 = Base(12)
         self.assertEqual(b3.id, 12)
-
         b4 = Base()
         self.assertEqual(b4.id, 3)
 
@@ -423,7 +425,6 @@ class TestBase(unittest.TestCase):
         list_squares_output = Square.load_from_file_csv()
 
         self.assertTrue(len(list_squares_output) == 2)
-        self.assertFalse(list_squares_output == None)
 
     if __name__ == "__name__":
         unittest.main()
