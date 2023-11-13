@@ -1,7 +1,9 @@
 #!/usr/bin/node
 
-let cVar = 'C is fun';
-let pyhtonVar = '\nPython is cool';
-let javaScriptVar = '\nJavaScript is amazing';
+let languages = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+let i = 0;
 
-console.log(cVar, pyhtonVar, javaScriptVar);
+while (i < languages.length) {
+  console.log(languages[i]);
+  i += 1;
+}
