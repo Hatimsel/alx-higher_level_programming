@@ -22,8 +22,14 @@ if __name__ == "__main__":
         state = sys.argv[4]
         cursor.execute(query, (state,))
         result = cursor.fetchall()
+        cities = []
         for row in result:
             for col in row:
-                print(col + ", ", end='')
+                cities.append(col)
+                # if col == row[len(row) - 1]:
+                #     print(col, end='')
+                # else:
+                #     print(col + ", ", end='')
+        print((", ").join(cities))
         cursor.close()
         db.close()
