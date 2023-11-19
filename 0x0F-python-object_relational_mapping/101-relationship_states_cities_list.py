@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-A script that creates the State California with the City
-San Francisco from the database hbtn_0e_14_usa
+A script that all State objects and corresponding City objects
+contained in the database hbtn_0e_101_usa
 """
 import sqlalchemy
 from relationship_state import Base, State
 from relationship_city import City
-from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 import sys
 
 
@@ -23,6 +23,9 @@ if __name__ == "__main__":
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        new_state = City(name='San Francisco'state=State(name='California'))
-        session.add(new_row)
-        session.commit()
+        for s, c in session.query(State, City)\
+        .filter(s.id == c.state_id).order_by(s.id, c.id):
+            print("{}: {}\n".format(s.id, s.name), end='')
+            while (c.id):
+                print("\t{}: {}".format(c.id, c.name))
+                c.id++
