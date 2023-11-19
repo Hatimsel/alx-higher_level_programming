@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-A script that all State objects and corresponding City objects
-contained in the database hbtn_0e_101_usa
+A script that lists all City objects
+from the database hbtn_0e_101_usa
 """
 import sqlalchemy
 from relationship_state import Base, State
@@ -23,8 +23,6 @@ if __name__ == "__main__":
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        for s in session.query(State).order_by(s.id).all():
-            print("{}: {}".format(s.id, s.name))
-            for c in s.cities:
-                print("\t{}: {}".format(c.id, c.name))
+        for c in session.query(City).order_by(c.id).all():
+            print("{}: {} -> {}".format(c.id, c.name, c.state.name))
         session.close()
