@@ -28,4 +28,4 @@ if __name__ == "__main__":
             print("{}: {}\n".format(s.id, s.name), end='')
             while (c.id):
                 print("\t{}: {}".format(c.id, c.name))
-                c.id++
+                c.id += 1
