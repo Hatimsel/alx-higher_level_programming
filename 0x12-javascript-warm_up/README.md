@@ -1,1 +1,0 @@
-Starting JavaScript Programming Language
