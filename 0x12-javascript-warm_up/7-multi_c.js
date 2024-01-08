@@ -1,7 +1,5 @@
 #!/usr/bin/node
 
-//if (process.argv[2]) {
-
 const x = process.argv[2];
 
 if (parseInt(x)) {
@@ -11,6 +9,3 @@ if (parseInt(x)) {
 } else {
   console.log('Missing number of occuences');
 }
-/*else {
-  console.log('Missing number of occurences');
-}*/
