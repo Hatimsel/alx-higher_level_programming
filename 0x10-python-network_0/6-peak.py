@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """
+Peak
 """
 
 
 def find_peak(list):
     """
+    finds the peak of a list of integers
     """
     if len(list) == 0:
         return None
