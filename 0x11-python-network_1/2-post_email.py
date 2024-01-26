@@ -10,6 +10,7 @@ if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
     f_url = f"{url}?email={email}"
-    with urllib.request.urlopen(f_url) as response:
+    req = urllib.request.Request(f_url)
+    with urllib.request.urlopen(req) as response:
         data = response.read()
         print(data.decode())
