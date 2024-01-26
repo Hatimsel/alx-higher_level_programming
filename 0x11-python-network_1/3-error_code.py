@@ -4,7 +4,6 @@ Error code
 """
 import sys
 import urllib.request
-import urllib.error.HTTPError
 
 
 if __name__ == "__main__":
