@@ -12,8 +12,8 @@ if __name__ == "__main__":
     r = requests.post(url, data={'q': q})
     try:
         data = r.json()
-        print(f"[{data['id']} {data['name']}]")
-    except requests.exceptions.InvalidJSONError:
+        if data == {}:
+            print('No result')
+        print(f"[{data.get('id')}] {data.get('name')}")
+    except ValueError:
         print('Not a valid JSON')
-    except requests.exceptions.JSONDecodeError:
-        print('No result')
