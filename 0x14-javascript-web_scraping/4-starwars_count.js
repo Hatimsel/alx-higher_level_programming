@@ -8,7 +8,11 @@ request(peopleUrl, (err, resp, body) => {
   if (err) {
     console.log(err);
   } else {
-    const result = JSON.parse(body);
-    console.log(result.films.length);
+    try {
+      const result = JSON.parse(body);
+      console.log(result.films.length);
+    } catch (parseError) {
+      console.log(parseError);
+    }
   }
 });
